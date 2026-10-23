@@ -1,0 +1,196 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a111b"><title>MAESTRANZE | Mobile Offline</title><style>:root{color-scheme:dark;--bg:#0a111b;--surface:#142131;--panel:#1b2a3b;--edge:#2c4153;--text:#f4f7fc;--muted:#a8b9c8;--accent:#71d0bd;--accentdeep:#155c55;--orange:#ffc578;--red:#ff909c;--green:#8ae0ae;--shade:#0e1926}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Roboto,'Segoe UI',sans-serif;font-size:16px}
+body{padding-bottom:calc(36px + env(safe-area-inset-bottom));}button,select,input{font:inherit}button{touch-action:manipulation;cursor:pointer}
+header{background:linear-gradient(135deg,#142d38,#162236);border-bottom:1px solid var(--edge);padding:calc(16px + env(safe-area-inset-top)) 17px 15px;position:relative}
+.sub{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:800}.topline{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:4px;flex-wrap:wrap}
+h1{font-size:27px;margin:0;letter-spacing:-.04em}.version{font-size:11px;color:var(--muted);border:1px solid var(--edge);border-radius:30px;padding:4px 7px}
+main{max-width:760px;margin:auto;padding:14px 12px;display:grid;gap:12px}.card{background:var(--surface);border:1px solid var(--edge);border-radius:16px;padding:15px;box-shadow:0 3px 12px #0002}.sectionTitle{font-weight:800;font-size:16px;margin:0 0 10px}.muted{color:var(--muted)}.tiny{font-size:12px}.small{font-size:14px}p{line-height:1.45;margin:8px 0}.row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.scoreboard{display:grid;grid-template-columns:1fr 1fr;gap:9px}.person{border-radius:12px;background:var(--shade);border:1px solid var(--edge);padding:11px}.person.mine{border-color:var(--accentdeep)}.person.bot{border-color:#6d5150}.who{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}.score{font-weight:900;font-size:30px;line-height:1.15;font-variant-numeric:tabular-nums}.fact{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}.pill{border-radius:7px;background:#283b4c;padding:5px 7px;font-size:12px;display:inline-block}.pill.positive{background:#194637;color:#c1ffe5}.pill.negative{background:#512a34;color:#ffd1d6}.pill.gold{background:#52402b;color:#ffe3ac}.status{font-weight:700;padding:10px 12px;border-radius:11px;background:#223a4b;color:#d4f2fa}.status.you{background:#1d4e44;color:#bdffec}.status.end{background:#453a27;color:#fff0cb}.statgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.stat{background:var(--shade);padding:9px;border-radius:9px}.stat .value{font-size:20px;font-weight:800;line-height:1.15}.stat .lbl{font-size:11px;color:var(--muted);margin-top:2px}.btn{border:1px solid var(--edge);background:#253b4f;color:var(--text);border-radius:11px;padding:12px;min-height:46px;text-align:left;font-weight:650}.btn:active{transform:scale(.99)}.btn:disabled{opacity:.4}.btn.primary{background:var(--accentdeep);border-color:#378d7d}.btn.warn{background:#513f2c}.btn.outline{background:transparent}.btn.full{width:100%}.btn.sm{min-height:39px;padding:8px 12px;font-size:13px}.actions{display:grid;grid-template-columns:1fr;gap:8px}.actionCard{border-radius:11px;background:#203448;border:1px solid #3a566b;padding:12px;text-align:left;color:var(--text);display:flex;gap:12px;align-items:start;justify-content:space-between}.actionCard .cat{font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:.09em}.actionCard strong{display:block;margin-top:3px;font-size:14px;line-height:1.4}.actionCard small{color:var(--muted)}.actionCard:active{background:#275464}.controls{display:grid;grid-template-columns:1fr 1fr;gap:9px}.controls label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}select,input[type=number]{width:100%;border:1px solid #3b5367;background:#0d1d2b;border-radius:11px;padding:12px;color:var(--text);font-size:16px}input[type=range]{width:100%;accent-color:var(--accent);height:34px}.note{font-size:13px;border-left:3px solid var(--accent);padding:7px 0 7px 10px;color:#d4e9ef}.warnNote{border-color:var(--orange)}.item{display:flex;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid #283e4c;font-size:14px}.item:last-child{border:0}.tag{background:#213e47;padding:4px 7px;border-radius:7px;font-size:12px}.stack{display:grid;gap:9px}.fold summary{cursor:pointer;font-weight:700;padding:7px 0}.history{max-height:260px;overflow:auto}.history p{margin:0;padding:5px 0;border-bottom:1px dashed #2f4255;color:var(--muted);font-size:13px}.labelLine{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14px;margin:6px 0}.assignRow{display:grid;grid-template-columns:1fr 82px;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--edge)}.assignRow:last-child{border-bottom:0}.assignRow input{padding:9px}.progress{font-size:13px;color:var(--accent);font-weight:700}.blurb{border-radius:12px;background:#243545;padding:9px;font-size:13px}.source{font-size:11px;color:#9bacbc}
+@media(min-width:560px){.actions{grid-template-columns:1fr 1fr}.statgrid{grid-template-columns:repeat(4,1fr)}}
+.card,.scoreboard>*{min-width:0}.item{overflow-wrap:anywhere}.actionCard strong{overflow-wrap:anywhere}.confirmation{border:2px solid var(--accent);background:#17382f}.confirmation[hidden]{display:none}button:disabled{opacity:.45}.assignRow select{max-width:100%}</style></head><body>
+    <header><div class="sub">AI GAME LAB · MOBILE</div><div class="topline"><h1>MAESTRANZE</h1><span class="version">HTML offline v1.0</span></div><p class="muted small" style="margin:7px 0 0">Aste segrete · Botteghe · Bluff · Offline</p></header>
+    <main><div class="card"><div class="sectionTitle">⚙️ Impostazioni partita</div><div class="controls"><label>Avversario<select id="bot"><option value="ECON">ECON Mobile · Prudente</option><option value="LOSE">LOSE · Cerca di perdere</option><option value="AGG">AGG · Offerte alte</option><option value="ADAPT">ADAPT Mobile · Variabile</option><option value="RAND">Random · Allenamento</option></select></label><label>Gioca come<select id="seat"><option value="0">Giocatore A</option><option value="1">Giocatore B</option></select></label></div><div class="row" style="margin-top:12px"><button class="btn primary" id="new">↻ Nuova partita</button><button class="btn outline" id="export">⬇ Esporta replay</button></div><p class="source" style="margin-bottom:0">Le impostazioni cambiano avversario/posto soltanto avviando una nuova partita. Il salvataggio è locale e automatico ove supportato dal browser.</p></div>
+    <div class="note warnNote">Port JavaScript offline diagnostico. Modello V0/V1/V2 e bot mobili euristici: non sostituisce il motore Python validato.</div><div class="card"><div id="state"></div><div class="scoreboard" id="scoreboard" style="margin-top:10px"></div></div>
+        <div class="card"><h2 class="sectionTitle">Lotto all'asta</h2><div id="lot"></div><div class="controls" style="margin-top:11px"><label>Variante<select id="variant"><option value="V0">V0 · Carta Y coperta</option><option value="V1">V1 · Y scoperta / assegnazione fissa</option><option value="V2">V2 · Y scoperta / scegli chi vince</option></select></label><div class="blurb">La variante vale dalla <b>nuova partita</b>.</div></div></div>
+        <div class="card"><h2 class="sectionTitle">La tua decisione</h2><div id="actions" class="stack"></div><section id="confirmation" class="card confirmation" hidden aria-live="polite"><b>Mossa preparata · non ancora eseguita</b><p id="selectedActionLabel"></p><button class="btn primary full" id="confirmAction">Conferma azione</button><button class="btn outline full" id="cancelAction" style="margin-top:8px">Annulla selezione</button></section></div>
+        <div class="card"><details class="fold"><summary>Le tue botteghe, Segreti e avversario</summary><div id="cards"></div></details><details class="fold"><summary>Commesse aperte</summary><div id="commesse"></div></details></div><div class="card"><details class="fold"><summary>Registro pubblico della partita</summary><div class="history" id="history"></div></details></div><div class="card"><details class="fold"><summary>📘 Regole e sfide per il playtest</summary><p><b>Comandi:</b> prepara una mossa e premi «Conferma azione» per eseguirla. La selezione non spende nulla; puoi annullarla o cambiarla.</p><p><b>Scopo:</b> accumulare punti consegnando le commesse dopo aver prodotto merci con le botteghe. Parti con 6 garzoni: quelli impegnati nelle aste non sono disponibili per la produzione e restano in riposo anche nel round successivo.</p><p><b>V0:</b> Y coperta; <b>V1:</b> entrambe le carte note, assegnazione fissa; <b>V2:</b> entrambe note, il vincitore sceglie. In tutte le versioni le offerte restano nascoste fino alla rivelazione.</p><p><b>Fasi:</b> offerte segrete → eventuale acquisizione botteghe → ordine coperto (potenziamento/sorveglianza/sabotaggio) → distribuisci lavoratori → produzione → conversioni → consegne. I Segreti personali sono visibili solo a te.</p><p><b>Bot:</b> LOSE tenta di prendere il premio di chi perde; AGG fa offerte alte; ECON e ADAPT sono <em>adattamenti euristici per cellulare</em>, non le stesse implementazioni Python certificate. Questa build è esplorativa: segnala comportamenti inattesi inviando il replay JSON.</p></details></div><footer class="muted tiny" style="padding:9px">Nessuna connessione, server o account richiesto. I replay sono diagnostici, non certificazioni di bilanciamento.</footer></main>
+    <script>/* MAESTRANZE MOBILE: motore JS offline indipendente. Port delle fasi principali
+   Python: engine.py/data.py/state.py/observe.py. Bot mobile semplificati,
+   NON identici ai bot Python certificati. Varianti V0/V1/V2. */
+const GOODS=['L','F','V','M'], RAW=GOODS.slice(0,3), IDX={L:0,F:1,V:2,M:3};
+const PROD=(t,R)=>({kind:'prod',t,cap:R.length-1,R});
+const BOTT={Telaio:PROD('L',[0,1,2]),Fucina:PROD('F',[0,1,2]),Soffieria:PROD('V',[0,1,2]),
+ B01:PROD('L',[0,1,3,5]),B02:PROD('F',[0,1,3,5]),B03:PROD('V',[0,1,3,5]),
+ B04:PROD('L',[0,2]),B05:PROD('F',[0,2]),B06:PROD('V',[0,2])};
+for(let i=7;i<=12;i++)BOTT['B'+('0'+i).slice(-2)]={kind:i<=8?'lab':'spec',t:null,cap:i===7?2:i===8?1:0,R:null};
+const START=['Telaio','Fucina','Soffieria'], BOTTIDS=Array.from({length:12},(_,i)=>'B'+('0'+(i+1)).slice(-2)), SEGIDS=Array.from({length:12},(_,i)=>'S'+('0'+(i+1)).slice(-2));
+const SCORTA={S01:'L',S02:'F',S03:'V'}, CONTRACT={S06:['LFV',7],S07:['MM',8]};
+const COMM={O01:['LLF',5],O02:['FFV',5],O03:['LVV',5],O04:['LFV',6],O05:['LLLF',7],O06:['FFVV',8],O07:['LLFFV',10],O08:['ML',7],O09:['MFV',9],O10:['MM',10],O11:['MML',13],O12:['MFVV',11],O13:['MLFV',11],O14:['MMM',16],O15:['LLFFVV',12]};
+const phasesWindow=['W1','W1P','W2','W2P','W3','W4'];const clone=o=>JSON.parse(JSON.stringify(o));
+function rngSeed(seed){let t=seed|0;return ()=>{t+=0x6D2B79F5;let x=t;x=Math.imul(x^(x>>>15),x|1);x^=x+Math.imul(x^(x>>>7),x|61);return ((x^(x>>>14))>>>0)/4294967296;};}
+function shuffled(a,rng){let b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(rng()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+const seat0=()=>({disp:6,r1:0,r2:0,capo:0,botteghe:[...START],stock:[0,0,0,0],score:0,secrets:[],known:[],added:0,b11used:false,delivered:0,assigned:[],maestro:null,bid:null,order:null,mark:null,talpaSeen:null});
+function init(variant='V0',seed=12023){let rng=rngSeed(seed),b=shuffled(BOTTIDS,rng),se=shuffled(SEGIDS,rng),co=shuffled(Object.keys(COMM),rng);let s={seed,variant,round:1,phase:'ALBA',first:0,turn:0,passes:0,seats:[seat0(),seat0()],xKnown:b.slice(0,4),lotY:[null,null],bottDeck:b.slice(4),segDeck:se,commDeck:co.slice(3),commesse:co.slice(0,3).map(x=>[x,0]),lotYDeck:[null,null],queue:[],resume:null,chooseCtx:null,closed:[],failedSab:[false,false],potenz:[null,null],discBott:[],discSeg:[],discComm:[],done:false,winner:null,history:[]};return advance(s);}
+function history(s,msg){s.history.push(`R${s.round} · ${msg}`);if(s.history.length>110)s.history.shift();}
+function total(p){return p.disp+p.r1+p.r2+p.capo;}
+function capStorage(p){return p.botteghe.includes('B10')?[6,5]:[4,3];}
+function lotX(s,a){return s.xKnown[2*(s.round-1)+a-1];}
+function lotY(s,a){return s.lotYDeck[a-1];}
+function abba(n){return [0,1,1,0,0,1,1,0,0,1,1,0][n-1];}
+function begin(s,phase){s.phase=phase;if([...phasesWindow,'ASSIGN','CONVERT','DELIVER'].includes(phase)){s.turn=s.first;if(phasesWindow.includes(phase)||phase==='DELIVER')s.passes=0;}
+ if(phase==='O1'||phase==='O2')s.seats.forEach(p=>p.bid=null);
+ if(phase==='P3')s.seats.forEach(p=>{p.order=null;p.mark=null;p.talpaSeen=null;});}
+function pay(st,req){return [...new Set(req)].every(g=>st[IDX[g]]>=req.split(g).length-1);}
+function validTargets(p){return p.botteghe.filter(b=>BOTT[b].cap>0);}
+function orders(s,seat){let me=s.seats[seat],opp=s.seats[1-seat],base=[['Nessuno',null]];
+ if(me.disp){for(let b of validTargets(me))base.push(['Potenziamento',b],['Sorveglianza',b]);for(let b of validTargets(opp))base.push(['Sabotaggio',b]);}
+ let guards=me.secrets.includes('S08')?[null,...validTargets(me)]:[null];return base.flatMap(([t,b])=>guards.map(g=>[t,b,g]));}
+function windowActions(s,seat){let p=s.seats[seat],out=[];for(let sid of new Set(p.secrets)){
+  if(SCORTA[sid]||sid==='S04'&&total(p)<7)out.push(['play',sid]);
+  if(sid==='S10'&&s.phase!=='W3'){if(p.r1>0)out.push(['play',sid,1]);if(p.r2>0)out.push(['play',sid,2]);}
+ }if(s.phase==='W4'&&p.botteghe.includes('B11')&&!p.b11used)for(let g of RAW){if(p.stock[IDX[g]]>0)for(let h of RAW)if(g!==h)out.push(['play','B11',g,h]);}return out;}
+function assignOptions(s,seat){let p=s.seats[seat],closed=new Set(s.closed.filter(x=>x[0]===seat).map(x=>x[1]));return p.botteghe.filter(b=>BOTT[b].cap>=1&&!closed.has(b)).map(b=>[b,BOTT[b].cap]);}
+function legal(s,seat){let ph=s.phase,p=s.seats[seat];if(s.done)return [];
+ if(ph==='O1'||ph==='O2')return p.bid===null?Array.from({length:p.disp+1},(_,i)=>['bid',i]):[];
+ if(ph==='CH1'||ph==='CH2')return s.chooseCtx&&s.chooseCtx[0]===seat?[['choose',0],['choose',1]]:[];
+ if(ph==='ACQ'){let q=s.queue[0];if(!q||q[1]!==seat)return [];if(q[0]==='raw')return RAW.map(x=>['raw',x]);let out=[['discard']];if(p.botteghe.length<6)out.unshift(['keep']);else out.push(...p.botteghe.map((_,i)=>['replace',i]));return out;}
+ if(phasesWindow.includes(ph))return s.turn===seat?[['pass'],...windowActions(s,seat)]:[];
+ if(ph==='P3')return p.order===null?orders(s,seat).map(x=>['order',...x]):[];
+ if(ph==='D3')return p.mark===null?[['talpa','passa'],...(p.secrets.includes('S09')?[['talpa','usa']]:[])]:[];
+ if(ph==='TR')return p.talpaSeen!==null?[['keep_order'],...orders(s,seat).map(x=>['replace_order',...x])]:[];
+ if(ph==='ASSIGN')return s.turn===seat?[['assign_ui']]:[];
+ if(ph==='CONVERT'){if(s.turn!==seat)return [];let acts=[['convert_done']],assigned=Object.fromEntries(p.assigned);
+  for(let lab of ['B07','B08'])if((assigned[lab]||0)>0){let tot=lab==='B07'?3:4;for(let l=0;l<=tot;l++)for(let f=0;f<=tot-l;f++){let v=tot-l-f,pay0=[l,f,v];if(pay0.some((x,i)=>x>p.stock[i])||lab==='B07'&&pay0.filter(x=>x>0).length<2)continue;acts.push(['convert',lab,pay0]);}}return acts;}
+ if(ph==='DELIVER'){if(s.turn!==seat)return [];let acts=[['deliver_pass']],q=p.botteghe.includes('B09')?2:1;
+  if(p.delivered<q)for(let [cid] of s.commesse)if(pay(p.stock,COMM[cid][0]))acts.push(['deliver',cid]);
+  for(let sid of p.secrets)if(CONTRACT[sid]&&pay(p.stock,CONTRACT[sid][0]))acts.push(['deliver_contract',sid]);return acts;}
+ return [];
+}
+function actors(s){if(s.done)return [];
+ if(s.phase==='O1'||s.phase==='O2')return [0,1].filter(x=>s.seats[x].bid===null);
+ if(s.phase==='P3')return [0,1].filter(x=>s.seats[x].order===null);
+ if(s.phase==='D3')return [0,1].filter(x=>s.seats[x].mark===null);
+ if(s.phase==='TR')return [0,1].filter(x=>s.seats[x].talpaSeen!==null);
+ if(s.phase==='CH1'||s.phase==='CH2')return [s.chooseCtx[0]];
+ if(s.phase==='ACQ')return [s.queue[0][1]];
+ return [s.turn];
+}
+function removeSecret(p,id){let i=p.secrets.indexOf(id);if(i<0)throw Error('Segreto non posseduto');p.secrets.splice(i,1);p.known=p.known.filter(s=>s!==id);}
+function activate(p,id){if(!p.known.includes(id))p.known.push(id);}
+function park(p,n,d){if(n<0||n>p.disp)throw Error('Garzoni insufficienti');p.disp-=n;if(d===1)p.r1+=n;else p.r2+=n;}
+function discardY(s,id){if(!id)return;if(s.variant==='V0'){history(s,'Una carta Y scartata');}else history(s,'Segreto scartato: '+id);s.discSeg.push(id);}
+function award(s,a,win,lo,eligible,kept){let x=lotX(s,a),y=lotY(s,a),cards=[x,y],w=cards[kept],l=eligible?cards[1-kept]:null;
+ let disc=eligible?null:cards[1-kept];s.lotYDeck[a-1]=null;s.lotY[a-1]=null;
+ for(let [who,card] of [[win,w],[lo,l]]){if(card===null)continue;if(card.startsWith('S')){s.seats[who].secrets.push(card);if(s.variant!=='V0')s.seats[who].known.push(card);}else s.queue.push(['bott',who,card]);}
+ if(disc){if(disc.startsWith('S'))discardY(s,disc);else s.discBott.push(disc);}
+ history(s,`Asta ${2*(s.round-1)+a}: A${s._lastBids[0]} / B${s._lastBids[1]}, vince ${win===0?'A':'B'}. Carta ${w}${l?' · rivale riceve '+(s.variant==='V0'&&l.startsWith('S')?'Y coperta':l):''}`);
+ s.chooseCtx=null;s.resume='W'+a+'P';if(s.queue.length)s.phase='ACQ';else begin(s,'W'+a+'P');
+}
+function resolveAuction(s,a){let bids=s.seats.map(p=>p.bid),n=2*(s.round-1)+a;let win=bids[0]===0&&bids[1]===0?null:bids[0]===bids[1]?abba(n):(bids[0]>bids[1]?0:1);
+ s._lastBids=[...bids];s.seats.forEach(p=>p.bid=null);
+ if(win===null){s.discBott.push(lotX(s,a));discardY(s,lotY(s,a));s.lotYDeck[a-1]=null;s.lotY[a-1]=null;history(s,'Asta nulla: nessuno offre');begin(s,'W'+a+'P');return;}
+ let lo=1-win,eligible=bids[lo]>=1,b12=s.seats[lo].botteghe.includes('B12');park(s.seats[win],bids[win],2);park(s.seats[lo],bids[lo],b12?1:2);
+ if(s.variant==='V2'){s.chooseCtx=[win,lo,eligible,n];s.phase='CH'+a;}else award(s,a,win,lo,eligible,0);
+}
+function resolveOrders(s){let guard=[new Set(),new Set()],closed=[],failed=[false,false],pot=[null,null];
+ for(let i=0;i<2;i++){let p=s.seats[i],ord=p.order||['Nessuno',null,null];if(ord[0]!=='Nessuno'){if(!p.disp)throw Error('Capomastro non disponibile');p.disp--;p.capo++;}
+  if(ord[0]==='Sorveglianza')guard[i].add(ord[1]);if(ord[2]!==null){guard[i].add(ord[2]);activate(p,'S08');}}
+ for(let i=0;i<2;i++){let [t,tg]=s.seats[i].order;if(t==='Sabotaggio'){if(guard[1-i].has(tg))failed[i]=true;else closed.push([1-i,tg]);}}
+ for(let i=0;i<2;i++){let [t,tg]=s.seats[i].order;if(t==='Potenziamento'&&!closed.some(([who,b])=>who===i&&b===tg))pot[i]=tg;}
+ s.closed=closed;s.failedSab=failed;s.potenz=pot;history(s,`Ordini: A ${s.seats[0].order[0]}, B ${s.seats[1].order[0]}`);
+ s.seats.forEach(p=>{p.order=null;p.mark=null;p.talpaSeen=null;});begin(s,'W4');
+}
+function talpaReveal(s){let users=[0,1].filter(i=>s.seats[i].mark==='usa');for(let u of users){removeSecret(s.seats[u],'S09');s.discSeg.push('S09');s.seats[u].talpaSeen=s.seats[1-u].order[0];}if(users.length===1){history(s,'Talpa utilizzata');s.phase='TR';}else{s.seats.forEach(p=>p.talpaSeen=null);resolveOrders(s);}}
+function generateAlba(s){let r=s.round;for(let p of s.seats){p.disp+=p.r1;p.r1=p.r2;p.r2=0;}
+ if(r>=2&&r<=5){let news=s.bottDeck.splice(0,2);s.xKnown.push(...news);}
+ s.lotYDeck=s.segDeck.splice(0,2);s.lotY=s.variant==='V0'?[null,null]:[...s.lotYDeck];let news=s.commDeck.splice(0,2);s.commesse.push(...news.map(c=>[c,0]));while(s.commesse.length>5)s.discComm.push(s.commesse.shift()[0]);
+ history(s,`Alba: carte X ${lotX(s,1)}, ${lotX(s,2)}; nuove commesse ${news.join(', ')}`);
+ s.queue=[];s.resume='W1';s.seats.forEach((p,i)=>{if(p.secrets.includes('S12')){activate(p,'S12');s.queue.push(['raw',i]);}});
+ if(s.queue.length){s.resume='W1';s.phase='ACQ';}else begin(s,'W1');}
+function resolveProduction(s){s.seats.forEach((p,i)=>{let res=[0,0,0,0];for(let [b,k] of p.assigned){let d=BOTT[b];if(d.kind!=='prod'||k<1)continue;let g=d.R[k]+(s.potenz[i]===b?2:0)+(p.maestro===b?1:0);p.stock[IDX[d.t]]+=g;res[IDX[d.t]]+=g;}history(s,`${i===0?'A':'B'} produce ${res.map((n,i)=>n?GOODS[i]+'+'+n:null).filter(Boolean).join(' ')||'zero'}`);});}
+function endRound(s){s.seats.forEach((p,i)=>{let [lr,lm]=capStorage(p);p.stock=p.stock.map((x,j)=>Math.min(x,j===3?lm:lr));p.disp+=p.capo-(s.failedSab[i]?1:0);p.r2+=s.failedSab[i]?1:0;p.capo=0;p.delivered=0;p.assigned=[];p.maestro=null;p.b11used=false;});
+ s.commesse=s.commesse.map(([c,b])=>[c,Math.min(3,b+1)]);s.closed=[];s.failedSab=[false,false];s.potenz=[null,null];
+ if(s.round===6){s.done=true;s.phase='END';let scores=s.seats.map(p=>[p.score,total(p),p.botteghe.length]);let cmp=JSON.stringify(scores[0])===JSON.stringify(scores[1])?0:(scores[0][0]!==scores[1][0]?scores[0][0]-scores[1][0]:scores[0][1]!==scores[1][1]?scores[0][1]-scores[1][1]:scores[0][2]-scores[1][2]);s.winner=cmp===0?null:cmp>0?0:1;history(s,'FINE PARTITA');return;}
+ s.round++;s.first=1-s.first;s.phase='ALBA';}
+function advance(s){let guard=0;while(!s.done&&++guard<150){let ph=s.phase;if(ph==='ALBA'){generateAlba(s);continue;}
+ if(phasesWindow.includes(ph)){if(s.passes>=2){begin(s,{W1:'O1',W1P:'W2',W2:'O2',W2P:'W3',W3:'P3',W4:'ASSIGN'}[ph]);continue;}
+  let who=s.turn;if(!windowActions(s,who).length){s.passes++;s.turn=1-who;continue;}return s;}
+ if(ph==='CONVERT'){let la=legal(s,s.turn);if(la.length===1){applyInPlace(s,s.turn,['convert_done']);continue;}return s;}
+ if(ph==='DELIVER'){if(s.passes>=2){endRound(s);continue;}if(legal(s,s.turn).length===1){s.passes++;s.turn=1-s.turn;continue;}return s;}
+ return s;}
+ if(guard>=150)throw Error('Ciclo automatico infinito');return s;}
+function applyInPlace(s,who,a){let p=s.seats[who],ph=s.phase,k=a[0];
+ if(ph==='O1'||ph==='O2'){p.bid=a[1];if(s.seats.every(p=>p.bid!==null))resolveAuction(s,ph==='O1'?1:2);}
+ else if(ph==='CH1'||ph==='CH2'){let [win,lo,el]=s.chooseCtx;award(s,ph==='CH1'?1:2,win,lo,el,a[1]);}
+ else if(ph==='ACQ'){let q=s.queue.shift();if(q[0]==='raw'){p.stock[IDX[a[1]]]++;}else{let id=q[2];if(k==='discard')s.discBott.push(id);else{if(k==='replace')s.discBott.push(p.botteghe.splice(a[1],1,id)[0]);else p.botteghe.push(id);if(id==='B10')s.queue.unshift(['raw',who],['raw',who]);if(id==='B11')s.queue.unshift(['raw',who]);}}if(!s.queue.length)begin(s,s.resume);}
+ else if(phasesWindow.includes(ph)){if(k==='pass'){s.passes++;s.turn=1-who;}else{let id=a[1];if(SCORTA[id]){p.stock[IDX[SCORTA[id]]]+=3;removeSecret(p,id);s.discSeg.push(id);}else if(id==='S04'){p.disp++;p.added++;removeSecret(p,id);s.discSeg.push(id);}else if(id==='S10'){if(a[2]===1){p.r1--;p.disp++;}else{p.r2--;p.disp++;}removeSecret(p,id);s.discSeg.push(id);}else if(id==='B11'){p.stock[IDX[a[2]]]--;p.stock[IDX[a[3]]]++;p.b11used=true;}history(s,`${who===0?'A':'B'} usa ${id}`);s.passes=0;s.turn=1-who;}}
+ else if(ph==='P3'){p.order=a.slice(1);if(s.seats.every(p=>p.order!==null))begin(s,'D3');}
+ else if(ph==='D3'){p.mark=a[1];if(s.seats.every(p=>p.mark!==null))talpaReveal(s);}
+ else if(ph==='TR'){if(k==='replace_order')p.order=a.slice(1);p.talpaSeen=null;resolveOrders(s);}
+ else if(ph==='ASSIGN'){let assign=a[1],maestro=a[2],slots=assignOptions(s,who),map=Object.fromEntries(slots),used=assign.reduce((z,[id,n])=>{if(!map[id]||n>map[id]||n<0)throw Error('Assegnazione illegale');return z+n;},0);if(used>p.disp)throw Error('Troppi garzoni assegnati');
+  p.assigned=assign.filter(x=>x[1]>0).sort((a,b)=>a[0].localeCompare(b[0]));p.maestro=maestro;if(maestro)activate(p,'S05');if(who===s.first)s.turn=1-who;else{resolveProduction(s);begin(s,'CONVERT');}}
+ else if(ph==='CONVERT'){if(k==='convert'){let lab=a[1],pay=a[2];for(let i=0;i<3;i++)p.stock[i]-=pay[i];p.stock[3]+=lab==='B07'?2:3;p.assigned=p.assigned.map(([b,n])=>[b,b===lab?n-1:n]).filter(([b,n])=>n>0||BOTT[b].kind!=='lab');history(s,`${who===0?'A':'B'} converte in manufatti`);}else if(who===s.first)s.turn=1-who;else begin(s,'DELIVER');}
+ else if(ph==='DELIVER'){if(k==='deliver_pass'){s.passes++;s.turn=1-who;}else{let [req,pts]=k==='deliver'?COMM[a[1]]:CONTRACT[a[1]];
+  for(let g of req)p.stock[IDX[g]]--;if(k==='deliver'){let item=s.commesse.find(x=>x[0]===a[1]);let v=pts+item[1];if(new Set(req).size>=3&&p.secrets.includes('S11')){v+=2;activate(p,'S11');}p.score+=v;p.delivered++;s.commesse=s.commesse.filter(x=>x[0]!==a[1]);s.discComm.push(a[1]);history(s,`${who===0?'A':'B'} completa ${a[1]}: +${v} punti`);}else{p.score+=pts;removeSecret(p,a[1]);s.discSeg.push(a[1]);history(s,`${who===0?'A':'B'} completa segreto ${a[1]}: +${pts}`);}s.passes=0;s.turn=1-who;}}
+}
+function step(st,seat,a){let s=clone(st);if(!actors(s).includes(seat))throw Error('Non tocca a questo giocatore');let la=legal(s,seat);if(a[0]!=='assign'&&!la.some(x=>JSON.stringify(x)===JSON.stringify(a)))throw Error('Mossa illegale '+JSON.stringify(a));applyInPlace(s,seat,a);return advance(s);}
+function sampleAssignment(s,who){let slots=assignOptions(s,who),p=s.seats[who];let remaining=p.disp,assign=[];slots=slots.sort((a,b)=>{
+ const X=id=>BOTT[id].kind==='prod'?(BOTT[id].R[BOTT[id].cap]/BOTT[id].cap):0;return X(b[0])-X(a[0]);});for(let [id,cap] of slots){if(BOTT[id].kind!=='prod')continue;let bestN=0,bestVal=0;for(let n=1;n<=Math.min(cap,remaining);n++){let v=BOTT[id].R[n];if(v>bestVal){bestVal=v;bestN=n;}}if(bestN){assign.push([id,bestN]);remaining-=bestN;}}return ['assign',assign,null];}
+function botChoose(s,seat,type){let p=s.seats[seat],la=legal(s,seat),ph=s.phase;const rnd=a=>a[Math.floor(Math.random()*a.length)];if(type==='RAND')return ph==='ASSIGN'?sampleAssignment(s,seat):rnd(la);
+ if(ph==='O1'||ph==='O2'){
+  if(type==='LOSE')return ['bid',p.disp?1:0];if(type==='AGG')return ['bid',Math.min(p.disp,Math.max(2,Math.ceil(2*p.disp/3)))];
+  let a=ph==='O1'?1:2,x=lotX(s,a),left=7-s.round,v=(BOTT[x].kind==='prod'?left*(Math.max(...BOTT[x].R))*.65:3);
+  let target=Math.min(p.disp,Math.max(0,Math.floor(v/3)));if(type==='ADAPT'){let opp=s.seats[1-seat];target=Math.min(p.disp,Math.max(0,(opp.disp>p.disp?1:2)+(v>7?1:0)));}return ['bid',target];
+ }
+ if(ph==='CH1'||ph==='CH2'){if(type==='LOSE')return ['choose',1];let a=ph==='CH1'?1:2,x=lotX(s,a),y=lotY(s,a);let vX=BOTT[x].kind==='prod'?Math.max(...BOTT[x].R):2;let vY=y==='S04'?5:y==='S12'?5:3;return ['choose',vX>=vY?0:1];}
+ if(ph==='ACQ'){let q=s.queue[0];if(q[0]==='raw')return ['raw',RAW.reduce((a,b)=>p.stock[IDX[a]]<=p.stock[IDX[b]]?a:b)];if(la.some(a=>a[0]==='keep'))return ['keep'];return ['discard'];}
+ if(phasesWindow.includes(ph)){return la.find(a=>a[0]==='play'&&(SCORTA[a[1]]||a[1]==='S04'))||['pass'];}
+ if(ph==='P3'){let prod=validTargets(p).filter(b=>BOTT[b].kind==='prod');let opp=validTargets(s.seats[1-seat]).filter(b=>BOTT[b].kind==='prod');let target=prod.sort((a,b)=>Math.max(...BOTT[b].R)-Math.max(...BOTT[a].R))[0];if(type==='AGG'&&opp.length&&p.disp)return ['order','Sabotaggio',opp[0],null];return target&&p.disp>=2?['order','Potenziamento',target,null]:['order','Nessuno',null,null];}
+ if(ph==='D3')return ['talpa',p.secrets.includes('S09')?'usa':'passa'];if(ph==='TR')return ['keep_order'];
+ if(ph==='ASSIGN')return sampleAssignment(s,seat);
+ if(ph==='CONVERT')return ['convert_done'];
+ if(ph==='DELIVER'){let ds=la.filter(a=>a[0]==='deliver'||a[0]==='deliver_contract');if(!ds.length)return ['deliver_pass'];return ds.sort((a,b)=>{let sc=x=>x[0]==='deliver'?COMM[x[1]][1]+(s.commesse.find(y=>y[0]===x[1])||[null,0])[1]:CONTRACT[x[1]][1];return sc(b)-sc(a);})[0];}
+ return la[0];
+}
+</script><script>const STORE='maestranze_mobile_B_20261023', $=id=>document.getElementById(id);let s=init('V0',1189),human=0,botName='ECON',busy=false,pendingAction=null;
+const esc=x=>String(x).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+function load(){try{let o=JSON.parse(localStorage.getItem(STORE));if(o&&o.s&&o.s.seats&&o.s.seats.length===2){s=o.s;botName=o.botName||'ECON';human=o.human??0;}}catch(e){}}
+function save(){try{localStorage.setItem(STORE,JSON.stringify({s,botName,human}));}catch(e){}}
+function current(){return actors(s).includes(human);}
+const names={W1:'Finestra Segreti 1',W1P:'Segreti dopo asta 1',W2:'Finestra Segreti 2',W2P:'Segreti dopo asta 2',W3:'Segreti e preparazione',W4:'Finestra dopo ordini',O1:'Prima asta segreta',O2:'Seconda asta segreta',CH1:'Scelta premio asta 1',CH2:'Scelta premio asta 2',ACQ:'Acquisizione Bottega',P3:'Ordine segreto',D3:'Talpa',TR:'Talpa: contrordine',ASSIGN:'Assegna garzoni',CONVERT:'Conversione prodotti',DELIVER:'Consegna commesse',END:'Partita terminata'};
+function cardInfo(c){if(!c)return 'Carta ignota';if(c.startsWith('S'))return c+' · Segreto';let d=BOTT[c];return c+' · '+(d.kind==='prod'?'produce '+d.t+' (cap '+d.cap+')':d.kind==='lab'?'laboratorio':'speciale');}
+function cardtext(p,name,mine){return `<div class="person ${mine?'mine':'bot'}"><div class="who">${esc(name)}</div><div class="score">${p.score} <small class="tiny muted">VP</small></div><div class="fact"><span class="pill positive">👷 ${p.disp} liberi</span><span class="pill">⏳ ${p.r1} / ${p.r2}</span></div><div class="fact">${GOODS.map((g,i)=>`<span class="pill ${i===3?'gold':''}">${g} ${p.stock[i]}</span>`).join('')}</div><div class="fact"><span class="pill">🏭 ${p.botteghe.length}</span><span class="pill">🔐 ${p.secrets.length}</span></div></div>`;}
+function actionLabel(a){let k=a[0];if(k==='bid')return `Offri ${a[1]} garzoni`;if(k==='choose')return `Scegli ${a[1]===0?'la prima carta X':'la seconda carta Y'}`;if(k==='play')return `Usa ${a.slice(1).join(' → ')}`;if(k==='pass'||k==='deliver_pass'||k==='convert_done')return 'Termina / passa';if(k==='raw')return `Prendi +1 ${a[1]}`;if(k==='keep')return 'Tieni la bottega';if(k==='discard')return 'Scarta la bottega';if(k==='replace')return `Sostituisci bottega n. ${a[1]+1}`;if(k==='order')return `${a[1]} · ${a[2]||'—'}${a[3]?' · guardia '+a[3]:''}`;if(k==='talpa')return a[1]==='usa'?'Usa Talpa':'Non usare Talpa';if(k==='keep_order')return 'Conferma ordine';if(k==='replace_order')return 'Cambia ordine in '+a[1]+' '+a[2];if(k==='convert')return `${a[1]}: ${a[2].join('/')} materie → ${a[1]==='B07'?2:3} M`;if(k==='deliver')return `${a[1]} · ${COMM[a[1]][0]} → ${COMM[a[1]][1]+(s.commesse.find(x=>x[0]===a[1])||[null,0])[1]} VP`;if(k==='deliver_contract')return `${a[1]} → ${CONTRACT[a[1]][1]} VP`;return a.join(' ');}
+function buttons(acts){return `<div class="actions">${acts.map(a=>`<button class="actionCard" data-act="${encodeURIComponent(JSON.stringify(a))}"><strong>${esc(actionLabel(a))}</strong><span>›</span></button>`).join('')}</div>`;}
+function render(){pendingAction=null;$('confirmation').hidden=true;let p=s.seats[human],q=s.seats[1-human];$('variant').value=s.variant;$('bot').value=botName;$('seat').value=String(human);
+ $('state').innerHTML=s.done?`<div class="status end">🏁 Partita terminata · ${s.winner===null?'Pareggio':s.winner===human?'Hai vinto':'Vince il bot'} (${p.score}–${q.score})</div>`:`<div class="status ${current()?'you':''}">Round ${s.round}/6 · ${names[s.phase]} · ${current()?'Tocca a te':'Sta giocando il bot'}</div>`;
+ $('scoreboard').innerHTML=cardtext(p,'Tu',true)+cardtext(q,'Bot '+botName,false);
+ $('lot').innerHTML=(s.phase==='O1'||s.phase==='O2'||s.phase==='CH1'||s.phase==='CH2')?(()=>{let a=['O1','CH1'].includes(s.phase)?1:2,x=lotX(s,a),y=s.lotY[a-1];return `<div class="item"><b>📜 Carta X</b><b>${esc(cardInfo(x))}</b></div><div class="item"><b>❓ Carta Y</b><b>${y?esc(cardInfo(y)):'Coperta fino alla risoluzione'}</b></div>`;})():`<p class="muted small">Aste: 2 per round. I lavoratori offerti restano indisponibili anche nel round successivo.</p>`;
+ $('cards').innerHTML=`<div class="tiny muted">LE TUE BOTTEGHE</div>${p.botteghe.map(b=>`<div class="item"><span>${esc(cardInfo(b))}</span></div>`).join('')}<div class="tiny muted" style="margin-top:12px">I TUOI SEGRETI (privati)</div>${p.secrets.map(b=>`<span class="pill gold">${b}</span>`).join(' ')||'<span class="muted small">Nessuno</span>'}<div class="tiny muted" style="margin-top:12px">BOTTEGHE DEL BOT</div>${q.botteghe.map(b=>`<span class="pill">${esc(b)}</span>`).join(' ')}`;
+ $('commesse').innerHTML=s.commesse.map(([id,bonus])=>`<div class="item"><span><b>${id}</b> · ${COMM[id][0]}</span><span>+${COMM[id][1]+bonus} VP</span></div>`).join('')||'<p class="muted">Commesse esaurite</p>';
+ let area=$('actions');if(s.done){area.innerHTML='<p>Partita terminata. Puoi esportare o iniziarne una nuova.</p>';return;}if(!current()){area.innerHTML='<p class="muted">Attendi la mossa del bot...</p>';return;}
+ let la=legal(s,human);if(s.phase==='O1'||s.phase==='O2'){area.innerHTML=`<p class="note">Offerta <b>segreta</b>. L'avversario non vede la tua puntata prima dello svelamento.</p><div class="row"><input type="range" id="bidrange" min="0" max="${p.disp}" value="${Math.min(1,p.disp)}"/><span class="pill gold" id="bidvalue">${Math.min(1,p.disp)}</span></div><button class="btn primary full" id="bidgo">Prepara offerta nascosta</button>`;let el=$('bidrange');el.oninput=()=>{$('bidvalue').textContent=el.value;};$('bidgo').onclick=()=>prepareAction(['bid',Number(el.value)]);}
+ else if(s.phase==='ASSIGN'){let slots=assignOptions(s,human);area.innerHTML=`<p class="note">Assegna fino a <b>${p.disp}</b> garzoni alle botteghe attive. Puoi lasciarne alcuni inutilizzati.</p>${slots.map(([id,cap],i)=>`<div class="assignRow"><label for="slot${i}">${esc(cardInfo(id))}</label><input id="slot${i}" type="number" min="0" max="${cap}" value="0" inputmode="numeric"></div>`).join('')}<div class="labelLine"><b>Maestro (S05)</b><select id="maestro"><option value="">Nessuno</option>${p.secrets.includes('S05')?slots.filter(([id])=>BOTT[id].kind==='prod').map(([id])=>`<option value="${id}">${id}</option>`).join(''):''}</select></div><div class="progress" id="assignedNum">0 / ${p.disp} impegnati</div><button class="btn primary full" id="assignGo">Rivedi produzione</button>`;
+ let inputs=slots.map((_,i)=>$('slot'+i));const upd=()=>{let total=inputs.reduce((z,inp)=>z+Number(inp.value||0),0);$('assignedNum').textContent=`${total} / ${p.disp} impegnati`;$('assignGo').disabled=total>p.disp||total<0;};inputs.forEach(inp=>inp.oninput=upd);$('assignGo').onclick=()=>{if(inputs.some(inp=>!Number.isInteger(Number(inp.value))||!inp.checkValidity())){alert('Inserisci numeri interi entro le capienze indicate.');return;}let assign=slots.map(([id,cap],i)=>[id,Math.max(0,Math.min(cap,Number(inputs[i].value||0)))]).filter(x=>x[1]>0);let maestro=$('maestro').value||null;if(maestro&&!assign.some(([id,n])=>id===maestro&&n>=1)){alert('Il Maestro richiede un lavoratore nella bottega scelta.');return;}prepareAction(['assign',assign,maestro]);};}
+ else{let acts=la;if(s.phase==='P3'||s.phase==='TR'){area.innerHTML=`<p class="note">${s.phase==='P3'?'Impartisci un ordine coperto. Viene rivelato dopo che entrambi avete scelto.':'Hai visto il tipo dell’ordine avversario; puoi cambiarlo.'}</p><select id="orderSelect">${acts.map((a,i)=>`<option value="${i}">${esc(actionLabel(a))}</option>`).join('')}</select><button class="btn primary full" id="orderGo" style="margin-top:9px">Prepara l'ordine</button>`;$('orderGo').onclick=()=>prepareAction(acts[Number($('orderSelect').value)]);}
+ else{area.innerHTML=buttons(acts);area.querySelectorAll('[data-act]').forEach(b=>b.onclick=()=>prepareAction(JSON.parse(decodeURIComponent(b.dataset.act))));}}
+ $('history').innerHTML=s.history.slice(-30).reverse().map(h=>`<p>${esc(h)}</p>`).join('');}
+function prepareAction(a){
+ if(busy||!current()||s.done)return;
+ pendingAction=clone(a);
+ $('selectedActionLabel').textContent=a[0]==='assign'?'Assegna: '+(a[1].map(([b,n])=>b+' × '+n).join(', ')||'nessun garzone')+(a[2]?' · Maestro: '+a[2]:''):actionLabel(a);
+ $('confirmation').hidden=false;$('confirmation').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function cancelAction(){if(busy)return;pendingAction=null;$('confirmation').hidden=true;}
+function confirmAction(){if(busy||!pendingAction||!current())return;let a=pendingAction;pendingAction=null;doAction(a);}
+function doAction(a){
+ if(busy||!current())return;
+ busy=true;$('new').disabled=true;
+ try{s=step(s,human,a);save();render();setTimeout(()=>{busy=false;pump();$('new').disabled=false;},40);}
+ catch(ex){busy=false;$('new').disabled=false;alert('Mossa non valida: '+ex.message);}
+}
+function pump(){if(busy)return;busy=true;let guard=0;try{while(!s.done&&!current()&&guard++<80){let who=actors(s).find(x=>x!==human);if(who===undefined)break;let a=botChoose(s,who,botName);if(!a)break;s=step(s,who,a);}}catch(ex){alert('Errore bot: '+ex.message);}busy=false;save();render();}
+function fresh(){if(busy)return;if(!confirm('Nuova partita? La sessione corrente verrà sovrascritta.'))return;let variant=$('variant').value,seat=Number($('seat').value);botName=$('bot').value;human=seat;s=init(variant,Math.floor(Math.random()*2**31));save();render();setTimeout(pump,50);}
+function exportGame(){let info={type:'MAESTRANZE_MOBILE',mode:'JS_LOCAL_DIAGNOSTIC',date:new Date().toISOString(),human,botName,state:s};let link=document.createElement('a');link.href=URL.createObjectURL(new Blob([JSON.stringify(info,null,2)],{type:'application/json'}));link.download='MAESTRANZE_REPLAY_'+Date.now()+'.json';link.click();setTimeout(()=>URL.revokeObjectURL(link.href),3000);}
+$('confirmAction').onclick=confirmAction;$('cancelAction').onclick=cancelAction;
+load();$('new').onclick=fresh;$('export').onclick=exportGame;render();pump();
+</script></body></html>
