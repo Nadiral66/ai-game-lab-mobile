@@ -1,0 +1,248 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a111b"><title>FILIERA | Pianifica i lavoratori</title><style>:root{color-scheme:dark;--bg:#0a111b;--surface:#142131;--panel:#1b2a3b;--edge:#2c4153;--text:#f4f7fc;--muted:#a8b9c8;--accent:#71d0bd;--accentdeep:#155c55;--orange:#ffc578;--red:#ff909c;--green:#8ae0ae;--shade:#0e1926}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Roboto,'Segoe UI',sans-serif;font-size:16px}
+body{padding-bottom:calc(36px + env(safe-area-inset-bottom));}button,select,input{font:inherit}button{touch-action:manipulation;cursor:pointer}
+header{background:linear-gradient(135deg,#142d38,#162236);border-bottom:1px solid var(--edge);padding:calc(16px + env(safe-area-inset-top)) 17px 15px;position:relative}
+.sub{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:800}.topline{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:4px;flex-wrap:wrap}
+h1{font-size:27px;margin:0;letter-spacing:-.04em}.version{font-size:11px;color:var(--muted);border:1px solid var(--edge);border-radius:30px;padding:4px 7px}
+main{max-width:760px;margin:auto;padding:14px 12px;display:grid;gap:12px}.card{background:var(--surface);border:1px solid var(--edge);border-radius:16px;padding:15px;box-shadow:0 3px 12px #0002}.sectionTitle{font-weight:800;font-size:16px;margin:0 0 10px}.muted{color:var(--muted)}.tiny{font-size:12px}.small{font-size:14px}p{line-height:1.45;margin:8px 0}.row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.scoreboard{display:grid;grid-template-columns:1fr 1fr;gap:9px}.person{border-radius:12px;background:var(--shade);border:1px solid var(--edge);padding:11px}.person.mine{border-color:var(--accentdeep)}.person.bot{border-color:#6d5150}.who{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}.score{font-weight:900;font-size:30px;line-height:1.15;font-variant-numeric:tabular-nums}.fact{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}.pill{border-radius:7px;background:#283b4c;padding:5px 7px;font-size:12px;display:inline-block}.pill.positive{background:#194637;color:#c1ffe5}.pill.negative{background:#512a34;color:#ffd1d6}.pill.gold{background:#52402b;color:#ffe3ac}.status{font-weight:700;padding:10px 12px;border-radius:11px;background:#223a4b;color:#d4f2fa}.status.you{background:#1d4e44;color:#bdffec}.status.end{background:#453a27;color:#fff0cb}.statgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.stat{background:var(--shade);padding:9px;border-radius:9px}.stat .value{font-size:20px;font-weight:800;line-height:1.15}.stat .lbl{font-size:11px;color:var(--muted);margin-top:2px}.btn{border:1px solid var(--edge);background:#253b4f;color:var(--text);border-radius:11px;padding:12px;min-height:46px;text-align:left;font-weight:650}.btn:active{transform:scale(.99)}.btn:disabled{opacity:.4}.btn.primary{background:var(--accentdeep);border-color:#378d7d}.btn.warn{background:#513f2c}.btn.outline{background:transparent}.btn.full{width:100%}.btn.sm{min-height:39px;padding:8px 12px;font-size:13px}.actions{display:grid;grid-template-columns:1fr;gap:8px}.actionCard{border-radius:11px;background:#203448;border:1px solid #3a566b;padding:12px;text-align:left;color:var(--text);display:flex;gap:12px;align-items:start;justify-content:space-between}.actionCard .cat{font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:.09em}.actionCard strong{display:block;margin-top:3px;font-size:14px;line-height:1.4}.actionCard small{color:var(--muted)}.actionCard:active{background:#275464}.controls{display:grid;grid-template-columns:1fr 1fr;gap:9px}.controls label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}select,input[type=number]{width:100%;border:1px solid #3b5367;background:#0d1d2b;border-radius:11px;padding:12px;color:var(--text);font-size:16px}input[type=range]{width:100%;accent-color:var(--accent);height:34px}.note{font-size:13px;border-left:3px solid var(--accent);padding:7px 0 7px 10px;color:#d4e9ef}.warnNote{border-color:var(--orange)}.item{display:flex;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid #283e4c;font-size:14px}.item:last-child{border:0}.tag{background:#213e47;padding:4px 7px;border-radius:7px;font-size:12px}.stack{display:grid;gap:9px}.fold summary{cursor:pointer;font-weight:700;padding:7px 0}.history{max-height:260px;overflow:auto}.history p{margin:0;padding:5px 0;border-bottom:1px dashed #2f4255;color:var(--muted);font-size:13px}.labelLine{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14px;margin:6px 0}.assignRow{display:grid;grid-template-columns:1fr 82px;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--edge)}.assignRow:last-child{border-bottom:0}.assignRow input{padding:9px}.progress{font-size:13px;color:var(--accent);font-weight:700}.blurb{border-radius:12px;background:#243545;padding:9px;font-size:13px}.source{font-size:11px;color:#9bacbc}
+.actionCard .explain{display:block;font-size:12px;line-height:1.45;color:#c6d8e5;font-weight:400;margin-top:7px}
+.actionCard .cost{display:inline-block;border-radius:7px;background:#4d3e2f;padding:3px 7px;margin:4px 0;color:#ffe2a8;font-size:12px}
+.learn{border-color:#487b76;background:#162d35}.learn .sectionTitle{color:#d3fff0}.learn ul{padding-left:20px;margin:7px 0}.learn li{margin:6px 0;line-height:1.4}
+.ruleGrid{display:grid;gap:8px;grid-template-columns:repeat(3,minmax(0,1fr))}.ruleGrid>div{background:#0d2130;padding:10px 6px;border-radius:9px;text-align:center;font-size:12px}.ruleGrid b{display:block;font-size:19px;color:#aaf0de}
+.helpTable{width:100%;border-collapse:collapse;font-size:13px}.helpTable th,.helpTable td{border-bottom:1px solid #304756;text-align:left;padding:8px 5px}.helpTable th{color:#cbe4ee}.ruleOpen p{margin:10px 0}
+.infoLink{color:#b8fbe7;display:inline-block;font-size:14px;font-weight:750;text-decoration:underline;text-underline-offset:3px;margin:7px 0}
+@media(min-width:560px){.actions{grid-template-columns:1fr 1fr}.statgrid{grid-template-columns:repeat(4,1fr)}}
+
+/* FILIERA v1.2 — planning and explicit confirmation */
+.playCard{border:1px solid #397c75;background:linear-gradient(145deg,#152b32,#142131)}
+.modeBar{display:grid;grid-template-columns:1fr;gap:6px;margin-bottom:5px}.modeBar label{font-size:12px;font-weight:750;color:#d4f0e9}
+.workerSlots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:13px 0 10px}
+.workerSlot{min-height:102px;border:1.5px dashed #587487;background:#0e1b29;border-radius:12px;color:var(--text);text-align:left;padding:10px 8px;display:flex;flex-direction:column;gap:6px;justify-content:start;overflow-wrap:anywhere}
+.workerSlot .slotTop{font-weight:800;font-size:12px;color:#c8dded}.workerSlot .slotContent{font-weight:750;font-size:13px;line-height:1.3}.workerSlot.selected{border-style:solid;border-color:#5ed2b2;background:#17463d}.workerSlot.active{border-style:solid;border-color:#ffc578;background:#3b3325}.workerSlot.done{border-style:solid;border-color:#39596b;background:#162634;opacity:.68}
+.workerSlot:disabled{cursor:default}.planFeedback{font-size:13px;color:#e0eff4;line-height:1.45;background:#0d202d;padding:10px;border-radius:10px;margin-bottom:10px}
+.preview{border:1px solid #3b5b65;border-radius:10px;background:#122b34;padding:11px;font-size:13px;line-height:1.55;margin-bottom:11px}
+.preview strong{color:#b7fff2}.preview .numbers{font-size:15px;font-weight:850;display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}
+.planButtons{display:grid;grid-template-columns:1.7fr 1fr;gap:8px;margin:8px 0}.planButtons .btn{text-align:center}.planButtons.secondaryButtons{grid-template-columns:1fr 1fr;margin-bottom:16px}.turnResults{border-left:3px solid #78bdc7;background:#142d39;padding:10px;border-radius:8px;margin:9px 0;font-size:12px;white-space:pre-line;line-height:1.5}.turnResults:empty{display:none}
+.actionListTitle{font-size:15px;margin:15px 0 10px;color:#d1f6ee}.actionCard:hover,.actionCard:focus-visible{outline:2px solid #9ce9d8;outline-offset:2px}.actionCard:disabled{opacity:.6}
+@media(max-width:360px){.workerSlot{padding:8px 6px;min-height:108px}.workerSlot .slotContent{font-size:12px}.planButtons{grid-template-columns:1fr}}
+</style></head><body>
+    <header><div class="sub">AI GAME LAB · MOBILE</div><div class="topline"><h1>FILIERA</h1><span class="version">HTML offline v1.2 · Piano confermato</span></div><p class="muted small" style="margin:7px 0 0">Engine building · 2 giocatori · Offline</p></header>
+    <main><div class="card"><div class="sectionTitle">⚙️ Impostazioni partita</div><div class="controls"><label>Avversario<select id="opponent"><option value="FIX3">FIX3 · Calendario rigido</option><option value="CMS">CMS · Caccia commesse</option><option value="LOOK">LOOK Mobile · Contromosse</option><option value="MARG">MARG Mobile · Valore economico</option><option value="RND">Random · Allenamento</option></select></label><label>Gioca come<select id="seat"><option value="0">Giocatore A</option><option value="1">Giocatore B</option></select></label></div><div class="row" style="margin-top:12px"><button class="btn primary" id="new">↻ Nuova partita</button><button class="btn outline" id="export">⬇ Esporta replay</button></div><p class="source" style="margin-bottom:0">Le impostazioni cambiano avversario/posto soltanto avviando una nuova partita. Il salvataggio è locale e automatico ove supportato dal browser.</p></div>
+    <div class="note warnNote">Port JavaScript offline delle regole di FILIERA. Bot mobili euristici, non identici ai bot Python certificati.</div><section class="card learn" id="learn">
+<div class="sectionTitle">📘 Prima di giocare: come funziona FILIERA</div>
+<p>Hai <b>3 lavoratori per round</b> e <b>8 round</b>. Pianifica le azioni nei tre slot: finché non confermi, non spendi nulla. Devi scegliere se <b>potenziare</b>, <b>produrre</b> o <b>incassare punti</b>.</p>
+<div class="ruleGrid"><div><b>⛏️ Miniera</b>Grezzi (G)</div><div><b>⚙️ Officina</b>G → raffinati (F)</div><div><b>🏬 Bottega</b>Bonus punti sulle vendite</div></div>
+<ul>
+<li><b>Miniera L0→L1:</b> spendi 3 G; ogni futura estrazione rende 3 G anziché 2.</li>
+<li><b>Officina L0→L1:</b> spendi 4 G; sblocchi fino a 2 raffinati per azione (2 G per 1 F).</li>
+<li><b>Bottega L0→L1:</b> spendi 3 G; aggiungi +1 VP sulle prime 3 unità di ogni vendita.</li>
+<li><b>Conferma piano:</b> le azioni preparate vengono eseguite nell’ordine indicato, ma il bot continua ad alternarsi fra i lavoratori. Se una mossa diventa illegale, la risoluzione si interrompe e puoi ripianificare.</li><li><b>Passare</b> termina le tue azioni per il round, anche se ti restano lavoratori. Gli ultimi G e F a fine partita non danno punti.</li>
+</ul><p><b>Primo round di esempio:</b> Miniera (+2 G), Commessa K1 (−3 G, +12 VP), vendi 1 G (+4 VP) = <b>16 punti</b>.</p>
+<a class="infoLink" href="#manual">Leggi il regolamento completo e i costi dei livelli ↓</a> · <a class="infoLink" href="#actions">Vai alle azioni ↓</a>
+</section><div class="card"><div id="headline"></div><div class="scoreboard" id="scoreboard" style="margin-top:10px"></div><p class="tiny muted" style="margin-bottom:0">⛏️ Miniera, ⚙️ Officina, 🏬 Bottega: i numeri indicano i livelli 0–3, non i lavoratori. G/F sono risorse, <b>VP</b> sono i punti della vittoria.</p></div>
+        <section class="card playCard" id="playCard"><h2 class="sectionTitle">👷 I tuoi 3 lavoratori</h2>
+<div class="modeBar"><label for="inputMode">Come vuoi scegliere?</label><select id="inputMode"><option value="batch">Pianifica il round (3 slot)</option><option value="single">Una mossa alla volta</option></select></div>
+<p id="modeHelp" class="tiny muted"></p><div id="workerSlots" class="workerSlots"></div>
+<div id="planFeedback" class="planFeedback" aria-live="polite"></div><div id="planPreview" class="preview"></div>
+<div class="planButtons"><button class="btn primary" id="confirmPlan" disabled>✓ Conferma piano</button><button class="btn outline" id="clearPlan">Cancella selezione</button></div>
+<div class="planButtons secondaryButtons"><button class="btn outline sm" id="undoLast" disabled>↶ Annulla ultima conferma</button><button class="btn outline sm" id="rulesJump">📘 Regolamento</button></div>
+<div id="turnResults" class="turnResults"></div>
+<h3 class="actionListTitle" id="actionTitle">Scegli l'azione</h3><p class="tiny muted" style="margin-top:0">Toccare un'azione la <b>seleziona soltanto</b>. Nessuna risorsa viene spesa prima di «Conferma». Puoi toccare uno slot per cambiarlo.</p>
+<div id="actions" class="stack"></div></section>
+<div class="card"><h2 class="sectionTitle">Stato del mercato</h2><div class="statgrid" id="market"></div><details class="fold"><summary>Commesse disponibili</summary><div id="contracts"></div></details></div><div class="card"><details class="fold"><summary>Cronologia delle mosse</summary><div class="history" id="history"></div></details></div><section class="card" id="manual"><details class="fold"><summary>📗 REGOLAMENTO COMPLETO — apri qui</summary>
+<div class="ruleOpen">
+<p><b>Vittoria:</b> dopo 8 round, chi ha più VP vince. In caso di pari VP, vince chi ha la somma livelli Miniera+Officina+Bottega più alta; ulteriore pari = pareggio. G e F avanzati valgono 0 VP.</p>
+<p><b>Setup:</b> ciascuno inizia con 2 G, 0 F, 0 VP, tutte le linee a livello 0 e 3 lavoratori. A inizia i round dispari; B quelli pari. Turni alternati; ogni azione usa 1 lavoratore, si risolve immediatamente e il relativo spazio personale può essere usato una sola volta per round. Passare significa rinunciare ai lavoratori rimanenti per quel round.</p><p><b>Interfaccia mobile:</b> puoi pianificare fino a tre azioni, poi confermare. Questa è una <i>modalità di impegno anticipato</i>: il bot agisce fra le tue azioni e le sue mosse potrebbero cambiare prezzi, commesse o legalità. Per decidere dopo ogni intervento del bot scegli “Una alla volta”: selezioni e confermi un’azione per turno. In entrambi i modi la regola di alternanza rimane invariata.</p>
+<p><b>Livelli e costi:</b> con CANTIERE paghi in grezzi per aumentare di un livello una sola linea (massimo livello 3). Ogni giocatore può usare Cantiere una volta per round.</p>
+<table class="helpTable"><thead><tr><th>Linea</th><th>L0 → L1 → L2 → L3 (effetto)</th><th>Costi L1/L2/L3</th></tr></thead><tbody>
+<tr><td>Miniera</td><td>2 / 3 / 5 / 8 G raccolti per attivazione</td><td>3 / 5 / 8 G</td></tr>
+<tr><td>Officina</td><td>0 / 2 / 3 / 4 F massimi per attivazione</td><td>4 / 6 / 8 G</td></tr>
+<tr><td>Bottega</td><td>0 / 1 / 2 / 3 VP extra per unità venduta (solo prime 3)</td><td>3 / 4 / 6 G</td></tr>
+</tbody></table>
+<p><b>Produzione:</b> MINIERA dà la quantità indicata dal livello corrente. OFFICINA converte 2 G → 1 F, da 1 fino al limite del livello, se hai G sufficienti. Il livello 0 di Officina non consente conversioni.</p>
+<p><b>Vendere:</b> due mercati condivisi, ciascuno con 8 posizioni. La vendita prende i prezzi nell'ordine delle posizioni ancora libere; più si satura, meno rende. A fine round entrambi recuperano 4 posizioni. La Bottega aggiunge un bonus sulle prime 3 unità di ciascuna vendita.</p>
+<table class="helpTable"><tr><th>Prezzi per posizione 1–8</th><th>VP per unità</th></tr><tr><td>Mercato Grezzi</td><td>4, 4, 3, 3, 2, 2, 1, 1</td></tr><tr><td>Mercato Raffinati</td><td>9, 9, 7, 7, 5, 5, 3, 3</td></tr></table>
+<p><b>Commesse:</b> sono pubbliche; ogni contratto ha costi G/F e VP indicati. Resta aperto nel round in cui compare e normalmente nel successivo (K8 soltanto round 8). Vince chi lo consegna per primo; ogni giocatore può fare al massimo una consegna per round. La Bottega non aggiunge bonus alle commesse.</p>
+<p><b>Ispezione:</b> se una linea dell'avversario è a livello 2 o 3, puoi spendere un lavoratore per marcarla. Al prossimo uso della linea, il livello effettivo diventa max(1, livello−2). Poi il marcatore sparisce. Non distrugge livelli; può restare anche oltre fine round finché la linea non viene usata.</p>
+<p><b>Limiti:</b> ogni tuo spazio è utilizzabile al più una volta per round: Miniera, Officina, Cantiere, Mercato G, Mercato F e Commesse. Ispezione si usa al massimo una volta totale per round tra entrambi i giocatori. Ogni azione dev'essere pagabile e con effetto reale.</p>
+<p><b>Bot:</b> FIX3 segue un piano, CMS cerca commesse, LOOK/MARG Mobile sono euristiche e non rappresentano i bot Python certificati. Random serve per imparare. Per i primi tentativi usa Random o CMS.</p>
+</div></details></section><footer class="muted tiny" style="padding:9px">Nessuna connessione, server o account richiesto. I replay sono diagnostici, non certificazioni di bilanciamento.</footer></main>
+    <script>/* FILIERA — port standalone JS delle regole Python A_RULES_ENGINE.py.
+   Profilo ALT, 8 round, 3 lavoratori. Non e' un motore Python: port indipendente,
+   mantenere le regole in sincronia, confrontare replay per ogni modifica. */
+const CFG={rounds:8, workers:3, g0:2, ladG:[4,4,3,3,2,2,1,1],ladF:[9,9,7,7,5,5,3,3], recovery:4,
+  costM:[3,5,8],costO:[4,6,8],costB:[3,4,6],y:[2,3,5,8],n:[0,2,3,4],beta:[0,1,2,3],inspDelta:2,
+  contracts:[[1,2,3,0,12],[2,3,0,2,20],[3,4,5,0,18],[4,5,0,3,30],[5,6,4,1,28],[6,7,7,0,26],[7,8,0,4,44],[8,8,3,3,40]]};
+const LINE_BIT={M:1,O:2,B:4},SPACE_BIT={M:1,O:2,C:4,MG:8,MF:16,K:32};
+const clone=o=>JSON.parse(JSON.stringify(o));
+function player(){return {G:2,F:0,VP:0,M:0,O:0,B:0,mk:0,used:0,w:3,passed:false};}
+function init(){let s={r:1,first:0,to_move:0,P:[player(),player()],dG:0,dF:0,kown:Array(8).fill(-1),insp:false};return select(s,0,true);}
+function eff(p,line){return (p.mk&LINE_BIT[line])?Math.max(1,p[line]-CFG.inspDelta):p[line];}
+function sale(good,d,n,b){return (good==='G'?CFG.ladG:CFG.ladF).slice(d,d+n).reduce((a,v)=>a+v,0)+CFG.beta[b]*Math.min(n,3);}
+function legalPlacements(s,pi){let p=s.P[pi],o=s.P[1-pi],res=[];
+ if(p.w<=0)return res;
+ if(!(p.used&1))res.push(['M']);
+ if(!(p.used&2))for(let k=1;k<=Math.min(CFG.n[eff(p,'O')],Math.floor(p.G/2));k++)res.push(['O',k]);
+ if(!(p.used&4))for(let l of 'MOB'){let cs=CFG['cost'+l];if(p[l]<3&&p.G>=cs[p[l]])res.push(['C',l]);}
+ if(!(p.used&8)&&s.dG<8)for(let n=1;n<=Math.min(p.G,8-s.dG);n++)res.push(['MG',n]);
+ if(!(p.used&16)&&s.dF<8)for(let n=1;n<=Math.min(p.F,8-s.dF);n++)res.push(['MF',n]);
+ if(!(p.used&32))CFG.contracts.forEach(([ap,un,g,f,v],i)=>{if(ap<=s.r&&s.r<=un&&s.kown[i]===-1&&p.G>=g&&p.F>=f)res.push(['K',i+1]);});
+ if(!s.insp)for(let l of 'MOB')if(o[l]>=2&&!(o.mk&LINE_BIT[l]))res.push(['I',l]);
+ return res;
+}
+function legal(s){return s.to_move<0?[]:[...legalPlacements(s,s.to_move),['PASS']];}
+function nextRound(s){s.dG=Math.max(0,s.dG-4);s.dF=Math.max(0,s.dF-4);s.P.forEach(p=>{p.w=3;p.used=0;p.passed=false;});s.r++;s.first=1-s.first;s.insp=false;if(s.r>8){s.to_move=-1;return s;}return select(s,s.first,true);}
+function select(s,last,start=false){let order=start?[s.first,1-s.first]:[1-last,last];for(let q of order){let p=s.P[q];if(p.passed)continue;if(legalPlacements(s,q).length){s.to_move=q;return s;}p.passed=true;}return nextRound(s);}
+function move(state,a){let s=clone(state),pi=s.to_move;if(pi<0)throw Error('Partita terminata');if(!legal(s).some(x=>JSON.stringify(x)===JSON.stringify(a)))throw Error('Azione non legale: '+JSON.stringify(a));let p=s.P[pi],t=a[0];if(t==='PASS'){p.passed=true;return select(s,pi);}
+ p.used|=SPACE_BIT[t]||0;
+ if(t==='M'){p.G+=CFG.y[eff(p,'M')];p.mk&=~1;}
+ else if(t==='O'){p.G-=2*a[1];p.F+=a[1];p.mk&=~2;}
+ else if(t==='C'){p.G-=CFG['cost'+a[1]][p[a[1]]];p[a[1]]++;}
+ else if(t==='MG'||t==='MF'){let good=t==='MG'?'G':'F',d=good==='G'?s.dG:s.dF;let n=a[1];p.VP+=sale(good,d,n,eff(p,'B'));p[good]-=n;p.mk&=~4;if(good==='G')s.dG+=n;else s.dF+=n;}
+ else if(t==='K'){let i=a[1]-1;let [, ,g,f,v]=CFG.contracts[i];p.G-=g;p.F-=f;p.VP+=v;s.kown[i]=pi;}
+ else if(t==='I'){s.P[1-pi].mk|=LINE_BIT[a[1]];s.insp=true;}
+ p.w--;return select(s,pi);
+}
+function label(a,s){let [t,n]=a;if(t==='M')return `⛏️ Miniera · +${CFG.y[eff(s.P[s.to_move],'M')]} grezzi`;
+ if(t==='O')return `⚙️ Officina · -${2*n} grezzi, +${n} raffinati`;
+ if(t==='C')return `🏗️ Cantiere · migliora ${ {M:'Miniera',O:'Officina',B:'Bottega'}[n]} a livello ${s.P[s.to_move][n]+1}`;
+ if(t==='MG'||t==='MF'){let good=t==='MG'?'G':'F',p=s.P[s.to_move],d=good==='G'?s.dG:s.dF;return `💰 Vendi ${n} ${t==='MG'?'grezzi':'raffinati'} · +${sale(good,d,n,eff(p,'B'))} punti`;}
+ if(t==='K')return `📋 Commessa ${n} · +${CFG.contracts[n-1][4]} punti`;
+ if(t==='I')return `🛑 Ispeziona ${ {M:'Miniera',O:'Officina',B:'Bottega'}[n]} rivale`;
+ return '⏭️ Passa / chiudi round';}
+const LINE_NAME={M:'Miniera',O:'Officina',B:'Bottega'};
+function actionDetails(a,s){let [t,n]=a, p=s.P[s.to_move];
+ if(t==='C'){
+   const name=LINE_NAME[n], old=p[n], next=old+1, cost=CFG['cost'+n][old];
+   let effects = n==='M' ? `Estrazioni: ${CFG.y[old]} → ${CFG.y[next]} G per uso (differenza +${CFG.y[next]-CFG.y[old]}).` :
+     n==='O' ? `Conversioni: fino a ${CFG.n[old]} → ${CFG.n[next]} F per uso. Ogni F richiede 2 G.` :
+     `Vendite: bonus +${CFG.beta[old]} → +${CFG.beta[next]} VP per unità, massimo 3 unità a visita.`;
+   return `<span class="cost">Costo immediato: −${cost} G, −1 lavoratore</span><span class="explain"><b>Cosa cambia?</b> ${effects} Rimane potenziata per tutti i round successivi. Nessun punto immediato.</span>`;
+ }
+ if(t==='M')return `<span class="explain">Consuma 1 lavoratore e ottieni ${CFG.y[eff(p,'M')]} G. I grezzi servono per miglioramenti, raffinazione, vendite e commesse.</span>`;
+ if(t==='O')return `<span class="explain">Consuma 1 lavoratore: −${2*n} G e +${n} F. Il raffinato può essere venduto sul mercato raffinati o consegnato alle commesse.</span>`;
+ if(t==='MG'||t==='MF')return `<span class="explain">Consuma 1 lavoratore e ${n} ${t==='MG'?'G':'F'}: guadagni subito ${sale(t==='MG'?'G':'F',t==='MG'?s.dG:s.dF,n,eff(p,'B'))} VP, inclusi gli eventuali bonus Bottega. La vendita aumenta la saturazione del mercato.</span>`;
+ if(t==='K'){let c=CFG.contracts[n-1];return `<span class="explain">Paga ${c[2]} G e ${c[3]} F, usa 1 lavoratore e ricevi subito ${c[4]} VP. La commessa non sarà più disponibile all'avversario.</span>`;}
+ if(t==='I')return `<span class="explain">Consuma 1 lavoratore. La prossima attivazione della ${LINE_NAME[n]} rivale rende temporaneamente come livello max(1, livello − 2), poi torna normale. Non ottieni punti immediati.</span>`;
+ if(t==='PASS')return `<span class="explain"><b>Attenzione:</b> rinunci agli eventuali ${p.w} lavoratori rimasti per questo round. Passa solo se vuoi davvero fermarti.</span>`;
+ return '';
+}
+function actionCat(a){return {M:'produzione',O:'produzione',C:'crescita',MG:'incasso',MF:'incasso',K:'incasso',I:'interferenza',PASS:'passa'}[a[0]];}
+function sortActs(acts){let rank={K:0,MF:1,MG:2,O:3,C:4,M:5,I:6,PASS:7};return [...acts].sort((a,b)=>rank[a[0]]-rank[b[0]]||((typeof a[1]==='number'&&typeof b[1]==='number')?b[1]-a[1]:0));}
+function economic(s,seat){let p=s.P[seat],o=s.P[1-seat];const v=x=>{let left=Math.max(0,8-s.r);let stock=x.G*Math.max(.5,3.2-.25*s.dG)+x.F*Math.max(1,7-.5*s.dF);let mach=x.M*3+x.O*3+x.B*2;
+ let potential=(x.M*1.7+x.O*2.4+x.B*1.7)*left*.72;return x.VP+stock*.74+potential+mach*(left/8);};return v(p)-v(o);}
+function botChoose(s,name){let acts=sortActs(legal(s)),p=s.P[s.to_move];if(!acts.length)return null;if(name==='RND')return acts[Math.floor(Math.random()*acts.length)];
+ if(name==='FIX3'){
+  if(s.r<=3){let tgt={M:0,O:0,B:0};for(let l of ['M','B','M','B','B']){tgt[l]++;if(p[l]<tgt[l]){let c=acts.find(a=>a[0]==='C'&&a[1]===l);if(c)return c;break;}}
+   let m=acts.find(a=>a[0]==='M');return m||['PASS'];}
+  for(let key of ['K','M','MF','MG']){let options=acts.filter(a=>a[0]===key);if(options.length){if(key==='K')return options.sort((a,b)=>CFG.contracts[b[1]-1][4]-CFG.contracts[a[1]-1][4])[0];if(key==='M')return options[0];return options.sort((a,b)=>b[1]-a[1])[0];}}return ['PASS'];
+ }
+ if(name==='CMS'){
+  let ks=acts.filter(a=>a[0]==='K');if(ks.length)return ks.sort((a,b)=>CFG.contracts[b[1]-1][4]-CFG.contracts[a[1]-1][4])[0];
+  if(s.r<=2){for(let line of 'MO')if(p[line]<1)return acts.find(a=>a[0]==='C'&&a[1]===line)||acts.find(a=>a[0]==='M')||['PASS'];}
+  let req=CFG.contracts.map(([ap,un,g,f,v],i)=>({i,ap,un,g,f,v})).filter(x=>s.kown[x.i]===-1&&x.ap<=s.r+1&&x.un>=s.r).sort((a,b)=> (Math.max(0,a.g-p.G)+2*Math.max(0,a.f-p.F))-(Math.max(0,b.g-p.G)+2*Math.max(0,b.f-p.F))||b.v-a.v)[0];
+  if(req){let missF=Math.max(0,req.f-p.F);if(missF){let os=acts.filter(a=>a[0]==='O').sort((a,b)=>Math.abs(a[1]-missF)-Math.abs(b[1]-missF));if(os.length)return os[0];}if(req.g>p.G||missF)return acts.find(a=>a[0]==='M')||['PASS'];}
+ }
+ let best=null,bv=-Infinity;for(let a of acts){let ns=move(s,a),val=economic(ns,s.to_move);if(name==='LOOK'){let opp=ns.to_move;if(opp>=0&&opp!==s.to_move){let ans=sortActs(legal(ns)).map(b=>economic(move(ns,b),s.to_move));val=Math.min(...ans);}}if(a[0]==='PASS')val-=.05;if(val>bv){bv=val;best=a;}}return best||acts[0];
+}
+</script><script>
+const STORAGE='filiera_mobile_A_v12_20261023',$$=id=>document.getElementById(id);
+let s=init(),botName='FIX3',log=[],locked=false,human=0,mode='batch',plan=[],editIndex=0,feedback='',lastResults='',undoSnapshot=null;
+function load(){try{let o=JSON.parse(localStorage.getItem(STORAGE));if(o&&o.s&&Array.isArray(o.s.P)&&o.s.P.length===2){s=o.s;botName=o.botName||'FIX3';log=o.log||[];human=o.human??0;mode=o.mode==='single'?'single':'batch';plan=o.plan||[];editIndex=Math.min(o.editIndex||0,plan.length);feedback=o.feedback||'';lastResults=o.lastResults||'';}}catch(ex){}}
+function save(){try{localStorage.setItem(STORAGE,JSON.stringify({s,botName,log,human,mode,plan,editIndex,feedback,lastResults}));}catch(ex){}}
+const e=x=>String(x).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const actsEqual=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+const completed=()=>s.to_move<0;
+function actionNamed(a,state){try{let q=clone(state);q.to_move=human;return label(a,q);}catch(_){return String(a[0]);}}
+function makePreview(snap,a){let q=clone(snap),p=q.P[human],t=a[0];if(t==='PASS'){p.passed=true;return q;}
+ p.used|=SPACE_BIT[t]||0;
+ if(t==='M'){p.G+=CFG.y[eff(p,'M')];p.mk&=~1;}
+ else if(t==='O'){p.G-=2*a[1];p.F+=a[1];p.mk&=~2;}
+ else if(t==='C'){p.G-=CFG['cost'+a[1]][p[a[1]]];p[a[1]]++;}
+ else if(t==='MG'||t==='MF'){let good=t==='MG'?'G':'F',n=a[1];p.VP+=sale(good,good==='G'?q.dG:q.dF,n,eff(p,'B'));p[good]-=n;p.mk&=~4;if(good==='G')q.dG+=n;else q.dF+=n;}
+ else if(t==='K'){let i=a[1]-1,c=CFG.contracts[i];p.G-=c[2];p.F-=c[3];p.VP+=c[4];q.kown[i]=human;}
+ else if(t==='I'){q.P[1-human].mk|=LINE_BIT[a[1]];q.insp=true;}
+ p.w--;return q;
+}
+function previewPlan(upto=plan.length){let q=clone(s);q.to_move=human;let result=[],stop=false,problem=null;
+ for(let i=0;i<Math.min(upto,plan.length);i++){let a=plan[i];if(stop){problem='Il piano contiene azioni dopo PASS.';break;}
+ if(!legal(q).some(x=>actsEqual(x,a))){problem=`Azione ${i+1} non valida nella simulazione del tuo piano.`;break;}
+ result.push({a,display:label(a,q),before:q});q=makePreview(q,a);if(a[0]==='PASS')stop=true;
+ }
+ return {q,result,stop,problem};
+}
+function ready(){return plan.length>0&&(mode==='single'||plan.some(a=>a[0]==='PASS')||plan.length===s.P[human].w);}
+function recap(p,name,isMine){return `<div class="person ${isMine?'mine':'bot'}"><div class="who">${e(name)}</div><div class="score">${p.VP} <small class="tiny muted">VP</small></div><div class="fact"><span class="pill gold">G ${p.G}</span><span class="pill">F ${p.F}</span><span class="pill">👷 ${s.to_move<0?'—':p.w+'/3'}</span></div><div class="fact"><span class="pill">⛏️${p.M}</span><span class="pill">⚙️${p.O}</span><span class="pill">🏬${p.B}</span>${p.mk?'<span class="pill negative">Ispezione</span>':''}</div></div>`;}
+function openContracts(){return CFG.contracts.map((c,i)=>({i,c})).filter(({i,c})=>s.kown[i]===-1&&c[0]<=s.r&&s.r<=c[1]);}
+function showPlan(){let canPlay=s.to_move===human&&s.to_move>=0&&!locked, used=3-s.P[human].w, left=s.P[human].w;
+ $$('inputMode').value=mode;
+ $$('modeHelp').textContent=mode==='batch'?'Prepara i lavoratori rimasti. Conferma una volta: il bot agirà fra le tue mosse. La previsione ignora le sue future decisioni.':'Scegli una sola mossa e conferma; dopo la risposta del bot potrai decidere nuovamente.';
+ let prev=previewPlan();if(prev.problem){plan=[];editIndex=0;prev=previewPlan();feedback='La pianificazione non era più valida ed è stata svuotata.';}
+ const slotHTML=[];
+ for(let k=0;k<3;k++){
+  if(k<used){slotHTML.push(`<button type="button" class="workerSlot done" disabled><span class="slotTop">👷 ${k+1}</span><span class="slotContent">✓ Già impiegato</span></button>`);continue;}
+  let j=k-used,a=plan[j],isEditable=canPlay&&(mode==='batch'?j<=plan.length:j===0),active=isEditable&&editIndex===j;
+  let txt=a?(prev.result[j]?.display||a[0]):(j===plan.length?'＋ Scegli azione':'Non assegnato');
+  slotHTML.push(`<button type="button" data-slot="${j}" ${isEditable?'':'disabled'} class="workerSlot ${a?'selected':''} ${active?'active':''}"><span class="slotTop">👷 ${k+1} ${a?'· pronto':''}</span><span class="slotContent">${e(txt)}</span></button>`);
+ }
+ $$('workerSlots').innerHTML=slotHTML.join('');
+ $$('workerSlots').querySelectorAll('[data-slot]').forEach(b=>b.onclick=()=>{editIndex=Number(b.dataset.slot);feedback=`Stai scegliendo il lavoratore ${used+editIndex+1}. Se modifichi una mossa, le successive verranno cancellate.`;save();render();});
+ let q=prev.q,m=s.P[human],p=q.P[human];
+ let fmt=(delta,sym)=>`${delta>0?'+':''}${delta} ${sym}`;
+ $$('planPreview').innerHTML=`<b>📊 Anteprima del tuo piano</b> (senza risposta del bot)<div class="numbers"><span>G ${m.G} → <strong>${p.G}</strong></span><span>F ${m.F} → <strong>${p.F}</strong></span><span>VP ${m.VP} → <strong>${p.VP}</strong></span></div><div class="tiny muted">Effetti futuri del bot non prevedibili; un contratto potrebbe essere preso prima della tua mossa.</div>`;
+ $$('confirmPlan').disabled=!canPlay||!ready();
+ $$('confirmPlan').textContent=mode==='batch'?`✓ Conferma piano (${plan.length}/${left})`:'✓ Conferma questa azione';
+ $$('clearPlan').disabled=!canPlay||!plan.length;
+ $$('undoLast').disabled=!undoSnapshot;
+ $$('turnResults').textContent=lastResults;
+ let base=feedback||(plan.length?`${plan.length} ${plan.length===1?'azione selezionata':'azioni selezionate'}. Nessuna ancora eseguita.`:'Tocca una delle azioni qui sotto: sarà aggiunta allo slot, non eseguita.');
+ $$('planFeedback').textContent=completed()?'Partita conclusa. Puoi iniziarne una nuova.':s.to_move!==human?'Il bot sta giocando.':base;
+ if(!canPlay){$$('actions').innerHTML='<p class="muted">'+(completed()?'Partita terminata.':'Il bot sta pensando...')+'</p>';return;}
+ if(ready()&&editIndex>=plan.length){$$('actions').innerHTML='<p class="muted">Piano pronto: premi «Conferma piano» oppure tocca uno slot per modificarlo.</p>';return;}
+ let editing=Math.min(editIndex,plan.length);let preview=previewPlan(editing),q2=preview.q;q2.to_move=human;
+ let acts=sortActs(legal(q2)),groups={crescita:[],produzione:[],incasso:[],interferenza:[],passa:[]};acts.forEach(a=>groups[actionCat(a)].push(a));
+ $$('actionTitle').textContent=`Scegli azione per il lavoratore ${Math.min(3,used+editing+1)}`;
+ $$('actions').innerHTML=Object.entries(groups).filter(([k,as])=>as.length).map(([cat,as])=>`<div class="stack"><div class="tiny muted">${{crescita:'🏗️ POTENZIA MOTORE',produzione:'⛏️ PRODUCI',incasso:'🏆 INCASSA PUNTI',interferenza:'🛑 OSTACOLA',passa:'ALTRO'}[cat]}</div><div class="actions">${as.map(a=>`<button type="button" class="actionCard" data-move="${encodeURIComponent(JSON.stringify(a))}"><span><span class="cat">${cat}</span><strong>${e(label(a,q2))}</strong>${actionDetails(a,q2)}</span><span>＋</span></button>`).join('')}</div></div>`).join('');
+ $$('actions').querySelectorAll('[data-move]').forEach(b=>b.addEventListener('click',()=>selectAction(JSON.parse(decodeURIComponent(b.dataset.move)))));
+}
+function render(){let me=s.P[human],opp=s.P[1-human];$$('opponent').value=botName;$$('seat').value=String(human);
+ $$('headline').innerHTML=s.to_move<0?`<div class="status end">🏁 Fine partita: ${s.P[0].VP===s.P[1].VP?(s.P[human].M+s.P[human].O+s.P[human].B===s.P[1-human].M+s.P[1-human].O+s.P[1-human].B?'Pareggio':(s.P[human].M+s.P[human].O+s.P[human].B>s.P[1-human].M+s.P[1-human].O+s.P[1-human].B?'Hai vinto allo spareggio!':'Vince il bot allo spareggio')):s.P[human].VP>s.P[1-human].VP?'Hai vinto!':'Vince il bot'}</div>`:`<div class="status ${s.to_move===human?'you':''}">Round ${s.r}/8 · ${s.to_move===human?'Tocca a te':'Sta giocando il bot'} · primo: ${s.first===human?'tu':'bot'}</div>`;
+ $$('scoreboard').innerHTML=recap(me,'Tu',true)+recap(opp,'Bot '+botName,false);
+ $$('market').innerHTML=`<div class="stat"><div class="value">${s.dG}/8</div><div class="lbl">Saturazione grezzi</div></div><div class="stat"><div class="value">${s.dF}/8</div><div class="lbl">Saturazione raffinati</div></div><div class="stat"><div class="value">${Math.max(0,8-s.r)}</div><div class="lbl">Round successivi</div></div><div class="stat"><div class="value">${openContracts().length}</div><div class="lbl">Commesse aperte</div></div>`;
+ $$('contracts').innerHTML=openContracts().map(({i,c})=>`<div class="item"><div><b>Commessa ${i+1}</b> · richiede ${c[2]} G / ${c[3]} F</div><b>${c[4]} VP</b></div>`).join('')||'<p class="muted small">Nessuna commessa attualmente aperta.</p>';
+ showPlan();$$('history').innerHTML=(log.slice(-35).reverse().map(x=>`<p>${e(x)}</p>`).join(''))||'<p>Nessuna mossa ancora.</p>';
+}
+function selectAction(a){if(locked||s.to_move!==human)return;let idx=Math.min(editIndex,plan.length);plan=plan.slice(0,idx).concat([a]);editIndex=plan.length;feedback=a[0]==='PASS'?'Hai scelto PASS: dopo la conferma terminerai le azioni del round.':`Azione aggiunta allo slot ${3-s.P[human].w+idx+1}. Puoi cambiarla prima di confermare.`;lastResults='';save();render();$$('playCard').scrollIntoView({behavior:'smooth',block:'start'});}
+function humanMove(a,res){let pi=s.to_move,old=s,p0=old.P[pi];let name=label(a,old),r=old.r;s=move(s,a);let p1=s.P[pi];let changes=[];
+ for(let [k,display] of [['G','G'],['F','F'],['VP','VP']]){let diff=p1[k]-p0[k];if(diff)changes.push(`${diff>0?'+':''}${diff} ${display}`);}
+ for(let k of 'MOB')if(p1[k]!==p0[k])changes.push(`${LINE_NAME[k]} livello ${p0[k]}→${p1[k]}`);
+ log.push(`R${r} TU · ${name}`);res.push(`TU: ${name}${changes.length?' ('+changes.join(', ')+')':''}`);
+}
+function runBots(res){let count=0;while(s.to_move>=0&&s.to_move!==human&&count++<120){let a=botChoose(s,botName);if(!a)throw Error('Bot non ha una mossa legale');let name=label(a,s),r=s.r;s=move(s,a);log.push(`R${r} BOT · ${name}`);res.push(`BOT: ${name}`);}if(count>=120)throw Error('Limite sicurezza bot superato');}
+function confirmPlan(){if(locked||s.to_move!==human||!ready())return;const initialRound=s.r, queue=plan.map(a=>[...a]);let changes=[];
+ let snapshot={s:clone(s),log:[...log],human,botName,mode};
+ locked=true;plan=[];editIndex=0;let failed=false;
+ try{
+  for(let i=0;i<queue.length;i++){
+   if(s.r!==initialRound||s.to_move<0){changes.push('Il round è terminato prima di eseguire tutte le azioni previste.');break;}
+   runBots(changes);
+   if(s.r!==initialRound||s.to_move!==human){changes.push('Il round si è chiuso o non è più il tuo turno. Le mosse successive sono state annullate.');break;}
+   let a=queue[i],isLegal=legal(s).some(x=>actsEqual(x,a));
+   if(!isLegal){changes.push(`⚠️ La tua azione ${i+1} (${actionNamed(a,s)}) non è più legale dopo le mosse del bot. Nessun lavoratore è stato speso per questa azione: scegli un altro piano.`);failed=true;break;}
+   humanMove(a,changes);runBots(changes);
+  }
+  feedback=failed?'Piano interrotto: rivedi i lavoratori rimasti.':`Piano risolto. Hai ancora ${s.to_move===human?s.P[human].w:0} lavoratori disponibili in questo turno.`;
+  undoSnapshot=snapshot;
+ }catch(err){s=snapshot.s;log=snapshot.log;undoSnapshot=null;changes=[`Errore di risoluzione: ${err.message}. Nessuna mossa applicata.`];feedback='Operazione annullata per sicurezza.';}
+ finally{locked=false;}
+ lastResults=changes.join('\n');save();render();
+}
+function undo(){if(!undoSnapshot||locked)return;if(!confirm('Annullare l’ultima conferma e le risposte del bot? È una funzione di allenamento: potrai riprovare le scelte.'))return;let a=undoSnapshot;s=clone(a.s);log=[...a.log];human=a.human;botName=a.botName;mode=a.mode;undoSnapshot=null;plan=[];editIndex=0;feedback='Ultimo piano annullato: puoi scegliere nuovamente, senza spese.';lastResults='';save();render();}
+function pump(){if(locked)return;locked=true;try{let a=[];runBots(a);if(a.length){lastResults=a.join('\n');plan=[];editIndex=0;}}catch(ex){feedback='Problema nel turno bot: '+ex.message;}locked=false;save();render();}
+function fresh(){if(!confirm('Iniziare una nuova partita? La precedente verrà sostituita (puoi esportarla prima).'))return;s=init();botName=$$('opponent').value;human=Number($$('seat').value);log=[];plan=[];editIndex=0;feedback='Nuova partita. Tocca un’azione: verrà soltanto selezionata.';lastResults='';undoSnapshot=null;save();render();pump();}
+function exportGame(){let data={type:'FILIERA_MOBILE',version:'1.2',s,botName,human,log,mode,exported:new Date().toISOString()};let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});let link=document.createElement('a');link.href=URL.createObjectURL(blob);link.download='FILIERA_REPLAY_'+Date.now()+'.json';link.click();setTimeout(()=>URL.revokeObjectURL(link.href),2000);}
+load();$$('new').onclick=fresh;$$('export').onclick=exportGame;$$('confirmPlan').onclick=confirmPlan;$$('clearPlan').onclick=()=>{if(locked)return;plan=[];editIndex=0;feedback='Piano cancellato. Nessuna azione eseguita.';save();render();};$$('undoLast').onclick=undo;
+$$('rulesJump').onclick=()=>{let sec=$$('manual');sec.querySelector('details').open=true;sec.scrollIntoView({behavior:'smooth'});};
+$$('inputMode').onchange=()=>{let next=$$('inputMode').value;if(plan.length&&!confirm('Cambiare modalità cancellerà soltanto le azioni preparate, non ancora eseguite. Continuare?')){$$('inputMode').value=mode;return;}mode=next;plan=[];editIndex=0;feedback=next==='single'?'Seleziona una mossa: il bot risponderà dopo la conferma.':'Riempi gli slot e conferma quando il piano è pronto.';save();render();};
+render();pump();
+</script></body></html>
